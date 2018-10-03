@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Movement types:</strong>
+  <%= @header_movement.movement_types %>
+</p>
+
+<p>
+  <strong>Document types:</strong>
+  <%= @header_movement.document_types %>
+</p>
+
+<p>
+  <strong>Header order of works:</strong>
+  <%= @header_movement.header_order_of_works %>
+</p>
+
+<p>
+  <strong>Providers:</strong>
+  <%= @header_movement.providers %>
+</p>
+
+<p>
+  <strong>Fecha creacion:</strong>
+  <%= @header_movement.fecha_creacion %>
+</p>
+
+<%= link_to 'Edit', edit_header_movement_path(@header_movement) %> |
+<%= link_to 'Back', header_movements_path %>

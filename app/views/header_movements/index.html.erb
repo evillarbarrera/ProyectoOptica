@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Header Movements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movement types</th>
+      <th>Document types</th>
+      <th>Header order of works</th>
+      <th>Providers</th>
+      <th>Fecha creacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @header_movements.each do |header_movement| %>
+      <tr>
+        <td><%= header_movement.movement_types %></td>
+        <td><%= header_movement.document_types %></td>
+        <td><%= header_movement.header_order_of_works %></td>
+        <td><%= header_movement.providers %></td>
+        <td><%= header_movement.fecha_creacion %></td>
+        <td><%= link_to 'Show', header_movement %></td>
+        <td><%= link_to 'Edit', edit_header_movement_path(header_movement) %></td>
+        <td><%= link_to 'Destroy', header_movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Header Movement', new_header_movement_path %>

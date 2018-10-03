@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cod_producto: MyString
+  nombre: MyString
+  marca: MyString
+  color: MyString
+  medidas: MyString
+  vigente: 1
+
+two:
+  cod_producto: MyString
+  nombre: MyString
+  marca: MyString
+  color: MyString
+  medidas: MyString
+  vigente: 1

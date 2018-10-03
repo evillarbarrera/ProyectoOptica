@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<div  class="form-style-barra">
+TIPOS DE USUARIO
+</div>
+
+<div  class="form-style-9">
+   <table  class="table">
+    <tr>
+      <th>Nombre</th>
+   
+        <th> <input id="buscar" type="text"  placeholder="Escriba algo para filtrar" />
+    
+       <%= link_to 'Nuevo Tipo de Usuario', new_user_type_path, class:"btn btn-success" %>  </th>
+    </tr>
+  
+
+
+ <table id="tabla" cellspacing="0" class="table">
+  <tbody>
+      <tr>
+    </tr>
+       <% @user_types.each do |user_type| %>
+      <tr >
+       <td><%= user_type.Nombre %></td>
+       <td>  <%= link_to 'Editar', edit_user_type_path(user_type) , class:"btn btn-warning" %>
+        <%= link_to 'Eliminar', user_type, method: :delete, data: { confirm: 'Esta Seguro de Eliminar?' } , class:"btn btn-danger"%></td>
+      </tr>
+
+    <% end %>
+     <!--    <td><img src="http://lorempixel.com/100/100/people/3" alt="" /></td> -->     </tbody>
+   </table>
+</div>
+
+
+<script>
+  
+  document.querySelector("#buscar").onkeyup = function(){
+        $TableFilter("#tabla", this.value);
+    }
+    
+    $TableFilter = function(id, value){
+        var rows = document.querySelectorAll(id + ' tbody tr');
+        
+        for(var i = 0; i < rows.length; i++){
+            var showRow = false;
+            
+            var row = rows[i];
+            row.style.display = 'none';
+            
+            for(var x = 0; x < row.childElementCount; x++){
+                if(row.children[x].textContent.toLowerCase().indexOf(value.toLowerCase().trim()) > -1){
+                    showRow = true;
+                    break;
+                }
+            }
+            
+            if(showRow){
+                row.style.display = null;
+            }
+        }
+    }
+
+</script>

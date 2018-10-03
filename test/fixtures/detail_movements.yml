@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  header_movements: one
+  products: one
+  precio_unitario: 1
+  cantidad: 1
+  total: 1
+
+two:
+  header_movements: two
+  products: two
+  precio_unitario: 1
+  cantidad: 1
+  total: 1

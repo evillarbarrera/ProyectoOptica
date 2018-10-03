@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  header_order_of_work: one
+  cod_ojo: MyString
+  cod_cercania: MyString
+  esf: MyString
+  cil: MyString
+  eje: MyString
+  dip: MyString
+  altura: MyString
+  cb: MyString
+  diam: MyString
+  productos: one
+  observaciones: MyString
+
+two:
+  header_order_of_work: two
+  cod_ojo: MyString
+  cod_cercania: MyString
+  esf: MyString
+  cil: MyString
+  eje: MyString
+  dip: MyString
+  altura: MyString
+  cb: MyString
+  diam: MyString
+  productos: two
+  observaciones: MyString

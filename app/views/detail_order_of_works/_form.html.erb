@@ -1,0 +1,77 @@
+<%= form_with(model: detail_order_of_work, local: true) do |form| %>
+  <% if detail_order_of_work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(detail_order_of_work.errors.count, "error") %> prohibited this detail_order_of_work from being saved:</h2>
+
+      <ul>
+      <% detail_order_of_work.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :header_order_of_work_id %>
+    <%= form.text_field :header_order_of_work_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cod_ojo %>
+    <%= form.text_field :cod_ojo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cod_cercania %>
+    <%= form.text_field :cod_cercania %>
+  </div>
+
+  <div class="field">
+    <%= form.label :esf %>
+    <%= form.text_field :esf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cil %>
+    <%= form.text_field :cil %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eje %>
+    <%= form.text_field :eje %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dip %>
+    <%= form.text_field :dip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :altura %>
+    <%= form.text_field :altura %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cb %>
+    <%= form.text_field :cb %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diam %>
+    <%= form.text_field :diam %>
+  </div>
+
+  <div class="field">
+    <%= form.label :products_id %>
+    <%= form.text_field :products_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observaciones %>
+    <%= form.text_field :observaciones %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

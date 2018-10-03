@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @header_order_of_work.user %>
+</p>
+
+<p>
+  <strong>Fecha ingres:</strong>
+  <%= @header_order_of_work.fecha_ingres %>
+</p>
+
+<p>
+  <strong>Fecha entrega:</strong>
+  <%= @header_order_of_work.fecha_entrega %>
+</p>
+
+<p>
+  <strong>Horas:</strong>
+  <%= @header_order_of_work.horas %>
+</p>
+
+<p>
+  <strong>Acuenta:</strong>
+  <%= @header_order_of_work.acuenta %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @header_order_of_work.saldo %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @header_order_of_work.total %>
+</p>
+
+<p>
+  <strong>Flag entregado:</strong>
+  <%= @header_order_of_work.flag_entregado %>
+</p>
+
+<%= link_to 'Edit', edit_header_order_of_work_path(@header_order_of_work) %> |
+<%= link_to 'Back', header_order_of_works_path %>

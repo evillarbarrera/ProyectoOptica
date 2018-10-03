@@ -1,0 +1,56 @@
+<%= form_with(model: header_order_of_work, local: true) do |form| %>
+<div class="form-style-9">
+  <% if header_order_of_work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(header_order_of_work.errors.count, "error") %> prohibited this header_order_of_work from being saved:</h2>
+
+      <ul>
+      <% header_order_of_work.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>-->
+
+  <ul>
+  <P1>
+  <li >   
+     <%= form.label :fecha_ingreso %>
+     <%= form.datetime_select :fecha_ingres,class:"field-style field-split align-left" ,placeholder:"Fecha de Ingreso" %>
+  </li>
+  <li>
+     <%= form.label :fecha_entrega %>
+     <%= form.datetime_select :fecha_entrega ,class:"field-style field-split align-right" ,placeholder:"Fecha de Entrega"%>
+  </li>
+
+  <li>
+     <%= form.text_field :horas ,class:"field-style field-split align-left" ,placeholder:"Horas" %>
+     <%= form.number_field :acuenta ,class:"field-style field-split align-right" ,placeholder:"Primer Pago"%>
+  </li>
+
+<li>
+     <%= form.text_field :saldo ,class:"field-style field-split align-left" ,placeholder:"Saldo" %>
+     <%= form.number_field :total ,class:"field-style field-split align-right" ,placeholder:"Total"%>
+  </li>
+
+
+<!--
+  <div class="field">
+    <%= form.label :flag_entregado %>
+    <%= form.number_field :flag_entregado %>
+  </div>-->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+</ul>
+</form>

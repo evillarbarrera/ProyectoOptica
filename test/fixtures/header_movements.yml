@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movement_types: one
+  document_types: one
+  header_order_of_works: one
+  providers: one
+  fecha_creacion: 2018-08-16 11:39:20
+
+two:
+  movement_types: two
+  document_types: two
+  header_order_of_works: two
+  providers: two
+  fecha_creacion: 2018-08-16 11:39:20

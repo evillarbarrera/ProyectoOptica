@@ -1,0 +1,41 @@
+<%= form_with(model: store, local: true) do |form| %>
+<div class="form-style-9">
+  
+  <% if store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+<ul>
+  
+  <li >   
+    <%= form.text_field :nombre ,class:"field-style field-split align-left" ,placeholder:"Nombre"%>
+    <%= form.text_field :direccion ,class:"field-style field-split align-right" ,placeholder:"Direccion"%>
+  </li>
+
+  <li >   
+    <%= form.text_field :telefono  ,class:"field-style field-split align-left" ,placeholder:"Telefono"%>
+    <%= form.text_field :email ,class:"field-style field-split align-right" ,placeholder:"Email"%>
+  </li>
+  
+<br>
+  <li>
+    
+     <%= form.select :companies_id, options_from_collection_for_select( Company.all, :id, :Nombre) , class:"field-style field-split align-right"%>
+  </li>
+
+
+
+  <li class="actions">
+    <%= form.submit "Ingresar Usuario"%>
+  </li>
+<% end %>

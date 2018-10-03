@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<div  class="form-style-barra">
+ORDENES DE TRABAJO
+</div>
+
+
+<div  class="form-style-9">
+ 
+   <table  class="table">
+
+    <tr>
+      <th>User</th>
+      <th>Fecha ingres</th>
+      <th>Fecha entrega</th>
+      <th>Horas</th>
+      <th>Acuenta</th>
+      <th>Saldo</th>
+      <th>Total</th>
+      <th>Flag entregado</th>
+      <th colspan="3"></th>
+       <th> <input id="buscar" type="text"  placeholder="Escriba algo para filtrar" />
+<%= link_to 'Nueva Orden', new_header_order_of_work_path , class:"btn btn-success"%></th>
+
+    </tr>
+
+
+  <tbody>
+    <% @header_order_of_works.each do |header_order_of_work| %>
+      <tr>
+        <td><%= header_order_of_work.user %></td>
+        <td><%= header_order_of_work.fecha_ingres %></td>
+        <td><%= header_order_of_work.fecha_entrega %></td>
+        <td><%= header_order_of_work.horas %></td>
+        <td><%= header_order_of_work.acuenta %></td>
+        <td><%= header_order_of_work.saldo %></td>
+        <td><%= header_order_of_work.total %></td>
+        <td><%= header_order_of_work.flag_entregado %></td>
+
+        <td><%= link_to 'Edit', edit_header_order_of_work_path(header_order_of_work) %></td>
+        <td><%= link_to 'Destroy', header_order_of_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<script>
+  
+  document.querySelector("#buscar").onkeyup = function(){
+        $TableFilter("#tabla", this.value);
+    }
+    
+    $TableFilter = function(id, value){
+        var rows = document.querySelectorAll(id + ' tbody tr');
+        
+        for(var i = 0; i < rows.length; i++){
+            var showRow = false;
+            
+            var row = rows[i];
+            row.style.display = 'none';
+            
+            for(var x = 0; x < row.childElementCount; x++){
+                if(row.children[x].textContent.toLowerCase().indexOf(value.toLowerCase().trim()) > -1){
+                    showRow = true;
+                    break;
+                }
+            }
+            
+            if(showRow){
+                row.style.display = null;
+            }
+        }
+    }
+
+</script>
+

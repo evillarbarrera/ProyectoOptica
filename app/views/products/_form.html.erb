@@ -1,0 +1,41 @@
+
+<%= form_with(model: product, local: true) do |form| %>
+<div class="form-style-9">
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<ul>
+  <P1>
+  <li >   
+    <%= form.text_field :cod_producto ,class:"field-style field-split align-left" ,placeholder:"Codigo del Producto"%>
+    <%= form.text_field :nombre ,class:"field-style field-split align-right" ,placeholder:"Nombre"%>
+  </li>
+<li >   
+    <%= form.text_field :marca  ,class:"field-style field-split align-left" ,placeholder:"Marca"%>
+    <%= form.text_field :color ,class:"field-style field-split align-right" ,placeholder:"Color"%>
+  </li>
+  
+
+  <li>
+    <%= form.text_field :medidas, class:"field-style field-full align-none" ,placeholder:"Medidas"%>
+  </li>
+
+  <!--<div class="field">
+    <%= form.label :vigente %>
+    <%= form.number_field :vigente %>
+  </div>-->
+
+  <li class="actions">
+    <%= form.submit %>
+  </li>
+<% end %>
+</ul>

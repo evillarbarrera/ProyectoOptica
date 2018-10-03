@@ -1,0 +1,42 @@
+<%= form_with(model: detail_movement, local: true) do |form| %>
+  <% if detail_movement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(detail_movement.errors.count, "error") %> prohibited this detail_movement from being saved:</h2>
+
+      <ul>
+      <% detail_movement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :header_movements_id %>
+    <%= form.text_field :header_movements_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :products_id %>
+    <%= form.text_field :products_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_unitario %>
+    <%= form.number_field :precio_unitario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.number_field :total %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

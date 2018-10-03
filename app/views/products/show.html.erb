@@ -1,0 +1,40 @@
+
+<p id="notice"><%= notice %></p>
+<tr>
+<p>
+ <th> <strong>Cod producto:</strong><th>
+  <%= @product.cod_producto %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @product.nombre %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @product.marca %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @product.color %>
+</p>
+
+<p>
+  <strong>Medidas:</strong>
+  <%= @product.medidas %>
+</p>
+
+<p>
+  <strong>Vigente:</strong>
+  <%= @product.vigente %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+
+<%= link_to 'Back', products_path %>
+ <tr>
+
+ </table>
+</div>

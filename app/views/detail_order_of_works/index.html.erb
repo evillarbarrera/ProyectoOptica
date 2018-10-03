@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Detail Order Of Works</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Header order of work</th>
+      <th>Cod ojo</th>
+      <th>Cod cercania</th>
+      <th>Esf</th>
+      <th>Cil</th>
+      <th>Eje</th>
+      <th>Dip</th>
+      <th>Altura</th>
+      <th>Cb</th>
+      <th>Diam</th>
+      <th>Productos</th>
+      <th>Observaciones</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detail_order_of_works.each do |detail_order_of_work| %>
+      <tr>
+        <td><%= detail_order_of_work.header_order_of_work %></td>
+        <td><%= detail_order_of_work.cod_ojo %></td>
+        <td><%= detail_order_of_work.cod_cercania %></td>
+        <td><%= detail_order_of_work.esf %></td>
+        <td><%= detail_order_of_work.cil %></td>
+        <td><%= detail_order_of_work.eje %></td>
+        <td><%= detail_order_of_work.dip %></td>
+        <td><%= detail_order_of_work.altura %></td>
+        <td><%= detail_order_of_work.cb %></td>
+        <td><%= detail_order_of_work.diam %></td>
+        <td><%= detail_order_of_work.productos %></td>
+        <td><%= detail_order_of_work.observaciones %></td>
+        <td><%= link_to 'Show', detail_order_of_work %></td>
+        <td><%= link_to 'Edit', edit_detail_order_of_work_path(detail_order_of_work) %></td>
+        <td><%= link_to 'Destroy', detail_order_of_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detail Order Of Work', new_detail_order_of_work_path %>
