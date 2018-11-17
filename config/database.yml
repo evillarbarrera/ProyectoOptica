@@ -10,16 +10,8 @@ default: &default
   timeout: 5000
 
 development:
-
-
-  adapter: mysql2
-  username: root
-  password:
-  host: 127.0.0.1
-  port: 3306
-  pool: 5
-  database: optical_controller
-
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

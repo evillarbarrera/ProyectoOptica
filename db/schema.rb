@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_143553) do
+ActiveRecord::Schema.define(version: 2018_10_09_181907) do
 
-  create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string "Nombre"
     t.string "Domicilio"
     t.string "Pais"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "detail_movements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "header_movements_id"
-    t.bigint "products_id"
+  create_table "detail_movements", force: :cascade do |t|
+    t.integer "header_movements_id"
+    t.integer "products_id"
     t.integer "precio_unitario"
     t.integer "cantidad"
     t.integer "total"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.index ["products_id"], name: "index_detail_movements_on_products_id"
   end
 
-  create_table "detail_order_of_works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "header_order_of_work_id"
+  create_table "detail_order_of_works", force: :cascade do |t|
+    t.integer "header_order_of_work_id"
     t.string "cod_ojo"
     t.string "cod_cercania"
     t.string "esf"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.string "altura"
     t.string "cb"
     t.string "diam"
-    t.bigint "products_id"
+    t.integer "products_id"
     t.string "observaciones"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,17 +54,17 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.index ["products_id"], name: "index_detail_order_of_works_on_products_id"
   end
 
-  create_table "document_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "document_types", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "header_movements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "movement_types_id"
-    t.bigint "document_types_id"
-    t.bigint "header_order_of_works_id"
-    t.bigint "providers_id"
+  create_table "header_movements", force: :cascade do |t|
+    t.integer "movement_types_id"
+    t.integer "document_types_id"
+    t.integer "header_order_of_works_id"
+    t.integer "providers_id"
     t.datetime "fecha_creacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.index ["providers_id"], name: "index_header_movements_on_providers_id"
   end
 
-  create_table "header_order_of_works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+  create_table "header_order_of_works", force: :cascade do |t|
+    t.integer "user_id"
     t.datetime "fecha_ingres"
     t.datetime "fecha_entrega"
     t.string "horas"
@@ -85,16 +85,17 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.integer "flag_entregado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "numero_orden"
     t.index ["user_id"], name: "index_header_order_of_works_on_user_id"
   end
 
-  create_table "movement_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "movement_types", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string "cod_producto"
     t.string "nombre"
     t.string "marca"
@@ -105,7 +106,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "providers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "providers", force: :cascade do |t|
     t.string "nombre"
     t.string "direccion"
     t.integer "telefono"
@@ -114,33 +115,33 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "stores", force: :cascade do |t|
     t.string "nombre"
     t.string "direccion"
     t.integer "telefono"
     t.string "email"
-    t.bigint "companies_id"
+    t.integer "companies_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["companies_id"], name: "index_stores_on_companies_id"
   end
 
-  create_table "user_stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "store_id"
+  create_table "user_stores", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_user_stores_on_store_id"
     t.index ["user_id"], name: "index_user_stores_on_user_id"
   end
 
-  create_table "user_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "user_types", force: :cascade do |t|
     t.string "Nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -152,7 +153,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "nombre"
-    t.bigint "user_types_id"
+    t.integer "user_types_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -160,17 +161,4 @@ ActiveRecord::Schema.define(version: 2018_08_17_143553) do
     t.index ["user_types_id"], name: "index_users_on_user_types_id"
   end
 
-  add_foreign_key "detail_movements", "header_movements", column: "header_movements_id"
-  add_foreign_key "detail_movements", "products", column: "products_id"
-  add_foreign_key "detail_order_of_works", "header_order_of_works"
-  add_foreign_key "detail_order_of_works", "products", column: "products_id"
-  add_foreign_key "header_movements", "document_types", column: "document_types_id"
-  add_foreign_key "header_movements", "header_order_of_works", column: "header_order_of_works_id"
-  add_foreign_key "header_movements", "movement_types", column: "movement_types_id"
-  add_foreign_key "header_movements", "providers", column: "providers_id"
-  add_foreign_key "header_order_of_works", "users"
-  add_foreign_key "stores", "companies", column: "companies_id"
-  add_foreign_key "user_stores", "stores"
-  add_foreign_key "user_stores", "users"
-  add_foreign_key "users", "user_types", column: "user_types_id"
 end
